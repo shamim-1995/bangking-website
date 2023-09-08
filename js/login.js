@@ -27,10 +27,12 @@ console.log(email, password);
 // Step-4:verify email amd password.
 
 if(email == 'sashamim987@gmail.com' && password == 'secret'){
-    console.log('valid user');
+    // console.log('valid user');
+    window.location.href = 'bank.html'
 }
 else{
-    console.log('Invalid user');
+    // console.log('Invalid user');
+    alert('You have entered wrong password.');
 }
 
 
