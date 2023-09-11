@@ -1,46 +1,53 @@
 
 // Step-1: add event listener to the deposit button.
-document.getElementById('btn-deposit').addEventListener('click', function(){
-// console.log('deposit button clicked');
+document.getElementById('btn-deposit').addEventListener('click', function () {
+    // console.log('deposit button clicked');
 
 
-// Step-2: Get the deposit amount from the deposit input field.
-// For input field use .value to the value inside the input field.
+    // Step-2: Get the deposit amount from the deposit input field.
+    // For input field use .value to the value inside the input field.
 
-const depositField = document.getElementById('deposit field');
+    const depositField = document.getElementById('deposit field');
 
-const newDepositAmountString = depositField.value;
+    const newDepositAmountString = depositField.value;
 
-const newDepositAmount = parseFloat(newDepositAmountString);
+    const newDepositAmount = parseFloat(newDepositAmountString);
+    // Step-7: Clear the deposit field.
 
-// console.log(depositAmount);
+    depositField.value = '';
+    if (isNaN(newDepositAmount)) {
+        alert('Please provide a valid number.');
+        return;
+    }
 
-// Step-3: get the current deposit total.
-// For non-input(element other than input, textarea) use innerText to get the text.
-const depositTotalElement = document.getElementById('deposit total');
+    // console.log(depositAmount);
 
-const previousDepositTotalString = depositTotalElement.innerText;
+    // Step-3: get the current deposit total.
+    // For non-input(element other than input, textarea) use innerText to get the text.
+    const depositTotalElement = document.getElementById('deposit total');
 
-const previousDepositTotal = parseFloat(previousDepositTotalString);
-// step-4: add numbers to set the total deposit.
-const currentDepositTotal = previousDepositTotal + newDepositAmount;
-// set the deposit total.
-depositTotalElement.innerText = currentDepositTotal;
+    const previousDepositTotalString = depositTotalElement.innerText;
 
-// Step-5: get balance current total.
-const balanceTotalElement = document.getElementById('balance total');
+    const previousDepositTotal = parseFloat(previousDepositTotalString);
 
-const previousBalanceTotalString = balanceTotalElement.innerText;
 
-const previousBalanceTotal = parseFloat(previousBalanceTotalString);
+    // step-4: add numbers to set the total deposit.
+    const currentDepositTotal = previousDepositTotal + newDepositAmount;
+    // set the deposit total.
+    depositTotalElement.innerText = currentDepositTotal;
 
-// Step-6:Calculate current total balance.
-const currentBalanceTotal = previousBalanceTotal + newDepositAmount;
-// set the balance total.
-balanceTotalElement.innerText = currentBalanceTotal;
+    // Step-5: get balance current total.
+    const balanceTotalElement = document.getElementById('balance total');
 
-// Step-7: Clear the deposit field.
+    const previousBalanceTotalString = balanceTotalElement.innerText;
 
-depositField.value = '';
+    const previousBalanceTotal = parseFloat(previousBalanceTotalString);
+
+    // Step-6:Calculate current total balance.
+    const currentBalanceTotal = previousBalanceTotal + newDepositAmount;
+    // set the balance total.
+    balanceTotalElement.innerText = currentBalanceTotal;
+
+
 
 });
